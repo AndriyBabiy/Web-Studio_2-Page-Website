@@ -59,6 +59,8 @@ h1, h2, h3, h4, h5, h6, p, ul {
 
 img {
   display: block;
+  min-width: 100%;
+  height: auto;
 }
 
 .visually-hidden {
@@ -469,6 +471,11 @@ button {
   margin: 0 auto;
   padding: 112px 0;
 }
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 921dpi), (min-resolution: 2dppx) {
+  .hero {
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office@2x.jpg);
+  }
 
 @media only screen and (min-width: 768px) {
   .hero {
@@ -1073,8 +1080,8 @@ Subscribe form
 @media only screen and (max-width: 767px) {
   .footer-form-input-label {
     display: flex;
+    justify-content: center;
 
-    margin: 0 auto;
     width: 100%;
   }
 }
@@ -1481,6 +1488,15 @@ input[type='checkbox']:checked ~ .modal-form-agreement-text > .modal-form-checkb
   margin-bottom: 72px;
 }
 
+@media only screen and (max-width: 767px) {
+  .portfolio-filters {
+    flex-wrap: wrap;
+    gap: 16px 24px;
+
+    justify-content: flex-start;
+  }
+}
+
 .filters-button {
   display: inline-flex;
   padding: 12px 24px;
@@ -1509,14 +1525,48 @@ input[type='checkbox']:checked ~ .modal-form-agreement-text > .modal-form-checkb
 .portfolio-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  row-gap: 48px;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .portfolio-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 72px 24px;
+
+    justify-content: flex-start;
+  }
 }
 
 .portfolio-item {
-  flex-basis: calc((100% - 24px * 2) / 3);
+  flex-direction: column;
+
+  gap: 48px;
 
   transitiion: color var(--transition-standard), background-color var(--transition-standard), border-color var(--transition-standard), box-shadow var(--transition-standard);
+}
+
+@media only screen and (min-width: 768px){
+  .portfolio-item {
+    flex-direction: row;
+
+    gap: 72px 24px;
+
+    /* flex-basis: calc((100% - 24px) / 2); */
+    width: 356px;
+  }
+}
+
+@media only screen and (min-width: 1158px){
+  .portfolio-item {
+    gap: 48px 24px;
+
+    flex-basis: calc((100% - 24px * 2) / 3);
+  }
 }
 
 .portfolio-item-link {
